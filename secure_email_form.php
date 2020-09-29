@@ -1,4 +1,28 @@
+<?php
+    function test_input($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $ata = htmlspecialchars($data);
 
+        return $data;
+    }
+
+    $name  = $_POST['name'];
+    $email = $_POST['email'];
+    $comment = $_POST['comment'];
+    $sub = 'Website';
+
+    $name2 = test_input($name);
+    $email2 = test_input($email);
+    $comment2 = test_input($comment);
+
+    $destination_email = "lolsonform@gmail.com";
+
+    $email_body = "$name2 -> $email2  -> $comment2";
+
+    mail($destination_email, $sub2, $email_body);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +35,7 @@
         web developer, content creator, accessibility">
     <meta name="author" content="Lindsey Olson">
     <title>Lindsey Olson - Web Developer</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 </head>
 <body>
     <div class="bg" id="home">
@@ -25,7 +49,7 @@
                 <a href="#experience">Experience</a>
                 <a href="#activities">Activities</a>
                 <a href="#contact">Contact</a>
-                <a href="resume.pdf" download> Download Resume </a>
+                <a href="/assets/media/resume.pdf" download> Download Resume </a>
                 <a href="javascript:void(0);" class="icon" onclick="hamburger()">
                     <div>
                         <div class="menu"></div>
@@ -48,7 +72,7 @@
         <h1>Meet the Maker</h1> <br/>
         <hr class="hr1">
 
-        <img src="picture.jpg" alt="Photograph of me" class="photo">
+        <img src="assets/media/picture.jpg" alt="Photograph of me" class="photo">
 
         <div class="desc">
             If you told me I would be looking to code for a living
@@ -87,17 +111,9 @@
                 CSS <br/>
                 <div class="meter"> <span style="width: 82%"></span> </div> <br/>
                 Javascript <br/>
-                <div class="meter"> <span style="width: 82%"></span> </div> <br/>
-                jQuery <br/>
-                <div class="meter"> <span style="width: 75%"></span> </div> <br/>
-                Dust/Mustache <br/>
-                <div class="meter"> <span style="width: 85%"></span> </div> <br/>
-                Bootrstrap <br/>
-                <div class="meter"> <span style="width: 75%"></span> </div> <br/>
+                <div class="meter"> <span style="width: 72%"></span> </div> <br/>
                 Responsive Design <br/>
                 <div class="meter"> <span style="width: 72%"></span> </div> <br/>
-                Accessible Design <br/>
-                <div class="meter"> <span style="width: 82%"></span> </div> <br/>
                 React.js <br/>
                 <div class="meter"> <span style="width: 50%"></span> </div> <br/>
                 Node.js <br/>
@@ -123,23 +139,23 @@
             Rochester Institute of Technology - August 2018 - May 2022 <br/> <br/>
             <span class="pink">Major:</span> Web and Mobile Computing <br/> <br/>
             <span class="pink">Immersion:</span> American Sign Language and Deaf Cultural Studies <br/> <br/>
-            <span class="pink">GPA:</span> 3.72/4.0 <br> <br/>
-            <span class="pink">Relevant Courses:</span> 
-            Software Design Principles and Patterns <span class="pink" style="font-weight: bolder; font-size: 1.25em">|</span>
-            Client Programming <span class="pink" style="font-weight: bolder; font-size: 1.25em">|</span>
-            Database Connectivity and Access <span class="pink" style="font-weight: bolder; font-size: 1.25em">|</span>
-            Foundations of Mobile Design <span class="pink" style="font-weight: bolder; font-size: 1.25em">|</span>
+            <span class="pink">GPA:</span> 3.63/4.0 <br> <br/>
+            <span class="pink">Relevant Courses:</span> Computer Science I and II
+            <span class="pink" style="font-weight: bolder; font-size: 1.25em">|</span>
             Computational Problem Solving in the Information Domain III <span class="pink" style="font-weight: bolder; font-size: 1.25em">|</span>
             Web and Mobile I and II <span class="pink" style="font-weight: bolder; font-size: 1.25em">|</span>
             Discrete Mathematics for Computing <span class="pink" style="font-weight: bolder; font-size: 1.25em">|</span>
             Introduction to Database and Data Modelling <span class="pink" style="font-weight: bolder; font-size: 1.25em">|</span>
             Designing the User Experience<span class="pink" style="font-weight: bolder; font-size: 1.25em">|</span>
             Networking Essentials for Developers <span class="pink" style="font-weight: bolder; font-size: 1.25em">|</span>
-            Computer Science I and II <span class="pink" style="font-weight: bolder; font-size: 1.25em">|</span>
             Calculus I and II<span class="pink" style="font-weight: bolder; font-size: 1.25em">|</span>
             Software Engineering Seminar<span class="pink" style="font-weight: bolder; font-size: 1.25em">|</span>
             Personal Software Engineering <span class="pink" style="font-weight: bolder; font-size: 1.25em">|</span>
             New Media Design <br/> <br/>
+            <span class="pink">Coming Fall 2020: </span> Database Connectivity and Access <span class="pink" style="font-weight: bolder; font-size: 1.25em">|</span>
+            Client Programming <span class="pink" style="font-weight: bolder; font-size: 1.25em">|</span>
+            Foundations of Mobile Design <span class="pink" style="font-weight: bolder; font-size: 1.25em">|</span>
+            Software Design Principles
         </div>
     </div>
 
@@ -199,32 +215,43 @@
         <hr class="hr1" style="margin-bottom: 2%;">
 
         <div class="desc" style="text-align: left;">
-            August 2020 - Current <br/>
-            <span class="pink"> MassMutual - Developer Contractor </span> <br/>
-            Refactor code, improve layout of the Accounts sections.
-            Visually and functionally test code, find and fix bugs, and
-            improve code accordingly.
-            Continue implementation of the new design standards.
-            Assist in the training of new developers on the team for
-            Agile practices as well as coding standards.
-            <br/> <br/>
-
             June 2020 - August 2020 <br/>
             <span class="pink">MassMutual - Web Developer Intern </span><br/>
-            Designed, implemented, and deployed new updates for the Accounts 
-            team, utilized HTML, CSS, React, JavaScript, and Docker in an agile team.
-            Reskinned the Accounts sections of the MassMutual.com
-            website to fit the new design standards and created an
-            overall more user friendly experience - changed over 100
-            files, increasing Aria utilization by 50%.
-            Coordinated with members in and out of the team, across
-            the company, in order to ensure the highest quality product
-            possible.
-            Ensured everything is correct for the more than 1.5 million
-            users that utilize the website.
-            Completed the cyber security and business acumen
-            training.
+            Design, implement, and deploy new updates for the Accounts
+            team that include more responsive design and adhere to the
+            accessibility standards set forth by W3. Utilize HTML, CSS,
+            React, and Docker in an agile environment in order to maintain,
+            manage, update, and launch new features for the website.
+            Work in a team in order to drive towards effective
+            utilization of the latest technologies.
             <br/> <br/>
+
+            January 2020 - Current <br/>
+            <span class="pink">CADTECH - Information Technology Assistant </span><br/>
+            Manage issues with hardware and software within
+            the College of Art and Design. Find, troubleshoot,
+            and solve technological difficulties. Assist any
+            students, faculty, or staff with computers in the
+            building. Maintain usability of printers,
+            projectors, speakers, and computers. <br/> <br/>
+
+            August 2019 - Current <br/>
+            <span class="pink">Golisano Office of the Dean - Instructor / Student Employee </span><br/>
+            Graded Javascript assignments for accurate syntax, commenting,
+            and best programming practices. Provided feedback, and
+            answered any questions students have about the coursework,
+            programming, or computer science in general. <br/> <br/>
+
+            July 2019 - August 2019 <br/>
+            <span class="pink">Camp Tiger - Instructor / Crew Chief </span> <br/>
+            Responsible for 12-24 students at a time,
+            including safety and learning. Taught Python,
+            specifically the Turtle library, and MIT App Inventor.
+            Had students create works of art using Python,
+            including functions, recursion, and more. Students
+            also created applications and tested them,
+            took feedback, and continued to improve them.
+            Created curriculum for the students to learn from.
         </div>
     </div>
 
@@ -251,6 +278,7 @@
             such as open houses, participate in student panels,
             and give tours. Organize community strengthening
             events for the iSchool. <br/> <br/>
+
             May 2019 - May 2020 <br/>
             <span class="pink"> Metalworks - Secretary and Webmaster</span> <br/>
             Sent out weekly emails pertaining to the details of the upcoming meeting,
